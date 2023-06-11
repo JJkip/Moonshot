@@ -16,6 +16,7 @@ struct ContentView: View {
                         .font(.title)
                 }
             }
+            .frame(maxWidth: .infinity)
         }
 //        GeometryReader { geo in
 //            Image("Example")
