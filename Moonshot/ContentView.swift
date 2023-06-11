@@ -37,8 +37,9 @@ struct ContentView: View {
 //        GridItem(.fixed(80))
     ]
     var body: some View {
-        ScrollView {
-            LazyVGrid(columns: layout){
+        ScrollView(.horizontal){
+            LazyHGrid(rows: layout){
+//                LazyVGrid(columns: layout){
                 ForEach(0..<1000){
                     Text("Item \($0)")
                 }
