@@ -20,8 +20,36 @@ struct CustomText: View {
     }
 }
 
+struct Company: Codable {
+    let name: String
+    let address: Address
+}
+
+struct Address: Codable {
+    let street: String
+    let city: String
+}
+
 struct ContentView: View {
     var body: some View {
+        Button("Decode JSON"){
+          let input = """
+            {
+                "name": "wasiliana",
+                "address": {
+                    "street":"Galana/Lenana Road",
+                    "city":"Nairobi"
+                }
+            }
+            """
+            let data = Data(input.utf8)
+            let decoder = JSONDecoder()
+            if let company = try? decoder.decode(Company.self, from: data) {
+                print(company.address.street)
+            }
+        }
+        
+        /*
         NavigationView {
             List(0..<100){ row in
                 NavigationLink {
@@ -33,7 +61,7 @@ struct ContentView: View {
             }
             .navigationTitle("Home")
         }
-        
+        */
         /*
         ScrollView(.horizontal) {
             LazyHStack(spacing: 10) {
