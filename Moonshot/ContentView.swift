@@ -22,6 +22,17 @@ struct CustomText: View {
 
 struct ContentView: View {
     var body: some View {
+        NavigationView {
+            NavigationLink {
+                Text("Detail View")
+            } label: {
+                Text ("Hi, my name is John")
+                    .padding()
+            }
+            .navigationTitle("Home")
+        }
+        
+        /*
         ScrollView(.horizontal) {
             LazyHStack(spacing: 10) {
                 ForEach(0..<100){
@@ -31,6 +42,7 @@ struct ContentView: View {
             }
 //            .frame(maxWidth: .infinity)
         }
+         */
 //        GeometryReader { geo in
 //            Image("Example")
 //                .resizable()
